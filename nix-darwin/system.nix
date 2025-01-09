@@ -97,6 +97,12 @@
       # Change the default finder view. “icnv” = Icon view, “Nlsv” = List view, “clmv” = Column View, “Flwv” = Gallery View The default is icnv.
       FXPreferredViewStyle = "Nlsv";
 
+      # Whether to show icons on the desktop or not. The default is true.
+      CreateDesktop = false;
+
+      # Change the default search scope. Use "SCcf" to default to current folder. The default is unset ("This Mac")
+      FXDefaultSearchScope = "SCcf";
+
     };
 
     defaults.NSGlobalDomain = {
