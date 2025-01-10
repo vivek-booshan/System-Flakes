@@ -12,6 +12,7 @@
 			"zen-browser"
 			"spotify"
 			"discord"
+			"raspberry-pi-imager"
 		];
 
 		taps = [
