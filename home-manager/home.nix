@@ -3,6 +3,7 @@
 {
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "vivek";
@@ -17,8 +18,10 @@
       bat
       neofetch
       fzf
+      fishPlugins.fzf-fish
+      fd
+      zoxide
       
-
       # language servers
       python312Packages.python-lsp-server
 
@@ -51,11 +54,25 @@
     };
   };
 
+  imports = [
+    ./dotfiles/spicetify.nix
+  ];
+
   programs = {
+
     starship = {
       enable = true;
       enableFishIntegration = true;
     };
+
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+      # keybindings = true;
+    };
+
+    zoxide.enable = true;
+
   };
   
 }
