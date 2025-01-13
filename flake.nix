@@ -15,10 +15,10 @@
 	  nix-darwin.url = "github:LnL7/nix-darwin";
 	  nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-		# spicetify-nix = {
-		# 	url = "github:Gerg-L/spicetify-nix";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		spicetify-nix = {
+			url = "github:Gerg-L/spicetify-nix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
 	  # Hardware (optional for nix-darwin)
 	  # hardware.url = "github:nixos/nixos-hardware";
@@ -89,7 +89,7 @@
 
 				pkgs = import nixpkgs { system = system; };
 				extraSpecialArgs = {
-					inherit inputs;
+					inherit inputs outputs;
 					userConfig = users.${username};
 				};
 				modules = [
@@ -106,7 +106,7 @@
 		};
 
 		homeConfigurations = {
-			"m1mac@vivek" = mkHomeConfiguration "aarch64-darwin" "m1mac" "vivek";
+			"vivek@m1mac" = mkHomeConfiguration "aarch64-darwin" "m1mac" "vivek";
 		};
 
 	};

@@ -17,7 +17,6 @@
       bat
       neofetch
 
-
       # language servers
       python312Packages.python-lsp-server
 
@@ -28,6 +27,8 @@
 
       # fonts
       jetbrains-mono
+
+      spicetify-cli
   
     ]; 
 
