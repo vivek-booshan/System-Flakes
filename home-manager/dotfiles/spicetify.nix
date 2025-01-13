@@ -9,5 +9,5 @@ in {
     enable = true;
     theme = spicePkgs.themes.dribbblish;
     colorScheme = "gruvbox-material-dark";
-  }
+  };
 }
