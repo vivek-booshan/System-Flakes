@@ -10,3 +10,5 @@ alias ezT="eza -T"
 if type -q starship
     starship init fish | source
 end
+
+fzf --fish | source

@@ -16,6 +16,8 @@
       htop
       bat
       neofetch
+      fzf
+      
 
       # language servers
       python312Packages.python-lsp-server
