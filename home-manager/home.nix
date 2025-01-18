@@ -10,7 +10,7 @@
     homeDirectory = "/Users/vivek";
 
     packages = with pkgs; [
-      # useful commands
+      # useful cli tools
       ripgrep
       eza
       lazygit
@@ -18,7 +18,6 @@
       bat
       neofetch
       fzf
-      fishPlugins.fzf-fish
       fd
       zoxide
       
@@ -29,10 +28,15 @@
       kitty
       starship
       fish
-
+      fishPlugins.fzf-fish
+      fishPlugins.fifc
+      tmux
+      tmuxPlugins.gruvbox
+      
       # fonts
       jetbrains-mono
 
+      # spicetify
       spicetify-cli
   
     ]; 
@@ -41,9 +45,12 @@
       EDITOR = "helix";
       TERM = "fish";
     };
+ 
+    file.".tmux.conf".text = builtins.readFile ./dotfiles/.tmux.conf;
   };  
 
   xdg = {
+    enable = true;
     configFile = {  
       "starship.toml".source = ./dotfiles/starship.toml;
       "fish/config.fish".source = ./dotfiles/fish/config.fish;
@@ -54,15 +61,19 @@
     };
   };
 
-  imports = [
-    ./dotfiles/spicetify.nix
-  ];
+  # imports = [
+  #   ./dotfiles/spicetify.nix
+  # ];
 
   programs = {
 
     starship = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    tmux = {
+      enable = true;
     };
 
     fzf = {
