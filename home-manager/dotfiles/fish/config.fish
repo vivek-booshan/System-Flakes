@@ -2,6 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+set -gx SHELL /run/current-system/sw/bin/fish
+
 fish_add_path /run/current-system/sw/bin
 fish_add_path /Users/vivek/.nix-profile/bin
 fish_add_path /opt/homebrew/bin
