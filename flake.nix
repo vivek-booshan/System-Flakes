@@ -20,10 +20,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-	  # Hardware (optional for nix-darwin)
-	  # hardware.url = "github:nixos/nixos-hardware";
-
-	  # Nix-homebrew
+		# Nix-homebrew
 	  nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
 	};
@@ -91,6 +88,14 @@
 				extraSpecialArgs = {
 					inherit inputs outputs;
 					userConfig = users.${username};
+					homeDirectory = 
+						if system == "aarch64-darwin" then 
+							"/Users/${username}"
+						else if system == "x86_64-linux" then
+							"/home/${username}"
+						else
+							throw "Exiting with error. Currently supporting aarch64-darwin and x86_64-linux"
+					;
 				};
 				modules = [
 					./home-manager/home.nix
@@ -107,6 +112,7 @@
 
 		homeConfigurations = {
 			"vivek@m1mac" = mkHomeConfiguration "aarch64-darwin" "m1mac" "vivek";
+			"vivek@popos" = mkHomeConfiguration "x86_64-linux" "popos" "vivek";
 		};
 
 	};

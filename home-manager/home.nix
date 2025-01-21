@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, homeDirectory, ... }: 
 
 {
   home.stateVersion = "24.11";
@@ -7,7 +7,7 @@
 
   home = {
     username = "vivek";
-    homeDirectory = "/Users/vivek";
+    homeDirectory = homeDirectory;
 
     packages = with pkgs; [
       # useful cli tools
@@ -26,6 +26,7 @@
 
       # terminal related
       kitty
+      helix
       starship
       fish
       fishPlugins.fzf-fish
@@ -57,7 +58,7 @@
       "helix/config.toml".source = ./dotfiles/helix/config.toml;
       "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
       # kitty searches the config directory when using the `include <theme>.conf` command
-      "kitty/gruvbox_dark.conf".source = ./dotfiles/kitty/gruvbox_dark.conf;
+      "kitty/everforest.conf".source = ./dotfiles/kitty/everforest.conf;
     };
   };
 
