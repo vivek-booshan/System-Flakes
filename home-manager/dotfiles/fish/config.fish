@@ -2,11 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -gx SHELL /run/current-system/sw/bin/fish
-
 fish_add_path /run/current-system/sw/bin
 fish_add_path /Users/vivek/.nix-profile/bin
-fish_add_path /opt/homebrew/bin
 
 alias la="eza -la"
 alias ezT="eza -T"
@@ -16,9 +13,17 @@ if type -q starship
     starship init fish | source
 end
 
-fzf --fish | source
-zoxide init fish | source
+if type -q fzf
+    fzf --fish | source
+end
 
+if type -q zoxide
+    zoxide init fish | source
+end
+
+if type -q direnv
+    direnv hook fish | source
+end
 # function _fzf_compgen_path
 #     fd --hidden --exclude .git . $argv[1]
 # end

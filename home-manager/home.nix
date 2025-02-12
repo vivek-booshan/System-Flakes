@@ -14,9 +14,7 @@
       ripgrep
       eza
       lazygit
-      htop
       bat
-      neofetch
       fzf
       fd
       zoxide
@@ -25,22 +23,29 @@
       python312Packages.python-lsp-server
 
       # terminal related
-      kitty
+      kitty # to get the nix kitty to work, set up nixGL, otherwise use the local version
       helix
       starship
       fish
       fishPlugins.fzf-fish
       fishPlugins.fifc
       tmux
-      tmuxPlugins.gruvbox
-      
-      # fonts
-      jetbrains-mono
+      #### better to just manually work with that instead of using nix for now
+      # (st.overrideAttrs (oldAttrs: rec {
+      #   buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
+      #   patches = [
+      #     # gruvbox
+      #     (fetchpatch {
+      #       url =  "https://st.suckless.org/patches/gruvbox-material/st-gruvbox-material-0.8.2.diff";
+      #       sha256 = "13wjrjkzzsmxw2lfb1cirkrk2dyg6zawflvwb11l62zlsg05x3r9";
+      #     })
+      #   ];
 
-      # spicetify
-      spicetify-cli
-  
-    ]; 
+      #   configFile = writeText "config.def.h" (builtins.readFile ./dotfiles/st/config.h);
+      #   postPatch = "{oldAttrs.postPatch}\n cp ${configFile} config.def.h";
+      # }))
+
+     ]; 
 
     sessionVariables = {
       EDITOR = "helix";
@@ -68,6 +73,8 @@
 
   programs = {
 
+    # fish.enable = true;
+
     starship = {
       enable = true;
       enableFishIntegration = true;
@@ -84,6 +91,12 @@
     };
 
     zoxide.enable = true;
+
+    direnv = {
+      enable = true;
+      # enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
 
   };
   
