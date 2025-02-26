@@ -1,4 +1,4 @@
-theme = 'gruvbox'
+theme = 'everforest_transparent'
 
 [editor]
 line-number='relative'
