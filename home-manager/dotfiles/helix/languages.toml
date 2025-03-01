@@ -1,0 +1,7 @@
+[[language]]
+name="c"
+indent = { tab-width=8, unit = "        " }
+
+[[language]]
+name="odin"
+indent = { tab-width=8, unit = "        " }
