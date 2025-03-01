@@ -30,6 +30,7 @@
       fishPlugins.fzf-fish
       fishPlugins.fifc
       tmux
+      st
       #### better to just manually work with that instead of using nix for now
       # (st.overrideAttrs (oldAttrs: rec {
       #   buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
@@ -41,10 +42,13 @@
       #     })
       #   ];
 
-      #   configFile = writeText "config.def.h" (builtins.readFile ./dotfiles/st/config.h);
+      #   configFile = writeText "config.def.h" (builtins.readFile /home/vivek/.config/flakes/dotfiles/st/config.h);
       #   postPatch = "{oldAttrs.postPatch}\n cp ${configFile} config.def.h";
       # }))
 
+      # c-lang
+      valgrind
+      gdb
      ]; 
 
     sessionVariables = {
@@ -52,7 +56,7 @@
       TERM = "fish";
     };
  
-    file.".tmux.conf".text = builtins.readFile ./dotfiles/.tmux.conf;
+    # file.".tmux.conf".text = builtins.readFile ./dotfiles/.tmux.conf;
   };  
 
   xdg = {
@@ -62,6 +66,7 @@
       "fish/config.fish".source = ./dotfiles/fish/config.fish;
       "helix/config.toml".source = ./dotfiles/helix/config.toml;
       "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+      "tmux/tmux.conf".source = ./dotfiles/tmux/tmux.conf;
       # kitty searches the config directory when using the `include <theme>.conf` command
       "kitty/everforest.conf".source = ./dotfiles/kitty/everforest.conf;
     };
