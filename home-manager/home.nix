@@ -21,6 +21,10 @@
       
       # language servers
       python312Packages.python-lsp-server
+      zls
+
+      # languages 
+      zig
 
       # terminal related
       kitty # to get the nix kitty to work, set up nixGL, otherwise use the local version
@@ -49,6 +53,9 @@
       # c-lang
       valgrind
       gdb
+      rr
+      # lld_18
+      # llvmPackages_18.libllvm
      ]; 
 
     sessionVariables = {
