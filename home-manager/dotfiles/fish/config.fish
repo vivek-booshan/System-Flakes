@@ -4,6 +4,7 @@ end
 
 fish_add_path /run/current-system/sw/bin
 fish_add_path /Users/vivek/.nix-profile/bin
+fish_add_path /usr/local/lib
 
 alias la="eza -la"
 alias ezT="eza -T"
