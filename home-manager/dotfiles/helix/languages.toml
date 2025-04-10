@@ -5,3 +5,8 @@ indent = { tab-width=8, unit = "        " }
 [[language]]
 name="odin"
 indent = { tab-width=8, unit = "        " }
+
+[[language]]
+name="zig"
+indent = { tab-width=8, unit = "        " }
+auto-format = false
