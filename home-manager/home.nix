@@ -23,6 +23,8 @@
       
       # language servers
       python312Packages.python-lsp-server
+      ols
+      zls
 
       # terminal related
       kitty
@@ -32,13 +34,20 @@
       fishPlugins.fifc
       tmux
       tmuxPlugins.gruvbox
-      
+
       # fonts
       jetbrains-mono
 
       # spicetify
       spicetify-cli
-  
+
+      #languages
+      odin
+      zig
+
+      # c tools
+      gcc
+      gperftools
     ]; 
 
     sessionVariables = {
@@ -52,6 +61,7 @@
   xdg = {
     enable = true;
     configFile = {  
+      ".tmux.conf".source = ./dotfiles/.tmux.conf;
       "starship.toml".source = ./dotfiles/starship.toml;
       "fish/config.fish".source = ./dotfiles/fish/config.fish;
       "helix/config.toml".source = ./dotfiles/helix/config.toml;
