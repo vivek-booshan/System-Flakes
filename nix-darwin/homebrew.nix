@@ -13,6 +13,9 @@
 			"spotify"
 			"discord"
 			"raspberry-pi-imager"
+			"zoom"
+			"microsoft-teams"
+			"arduino-ide"
 		];
 
 		taps = [

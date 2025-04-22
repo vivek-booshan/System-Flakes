@@ -151,5 +151,11 @@
 
     # Disable animation when switching screens or opening apps
     # defaults.universalaccess.reduceMotion = true;
+
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
+
   };
 }
