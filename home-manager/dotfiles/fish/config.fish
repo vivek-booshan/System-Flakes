@@ -16,7 +16,10 @@ if type -q starship
     starship init fish | source
 end
 
-fzf --fish | source
+if type -q fzf
+    fzf --fish | source
+end
+
 zoxide init fish | source
 
 # function _fzf_compgen_path
