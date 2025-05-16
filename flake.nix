@@ -61,17 +61,19 @@
 				};
 				modules = [
 					./home-manager/home.nix
-					# once multiple users : ./home-manager/${hostname}/${username}.nix 
+					# NOTE: once multiple users : ./home-manager/${hostname}/${username}.nix 
 				];
 
 			};
 
 	in {
 
+		#usage : darwin-rebuild switch --flake /path/to/flakes/#m1mac --show-trace
 		darwinConfigurations = {
 			m1mac = mkDarwinConfiguration "m1mac";
 		};
 
+		#usage : home-manager switch --flake /path/to/flakes#vivek@m1mac --show-trace
 		homeConfigurations = {
 			"vivek@m1mac" = mkHomeConfiguration "aarch64-darwin" "m1mac" "vivek";
 		};
