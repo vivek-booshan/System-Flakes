@@ -26,6 +26,8 @@
       ols
       zls
 
+      uv
+      
       # terminal related
       kitty
       starship
@@ -65,9 +67,12 @@
       "starship.toml".source = ./dotfiles/starship.toml;
       "fish/config.fish".source = ./dotfiles/fish/config.fish;
       "helix/config.toml".source = ./dotfiles/helix/config.toml;
+      "helix/languages.toml".source = ./dotfiles/helix/languages.toml;
+      # "helix/themes/everforest_transparent.toml".source = ./dotfiles/helix/themes/everforest_transparent.toml;
       "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
       # kitty searches the config directory when using the `include <theme>.conf` command
-      "kitty/gruvbox_dark.conf".source = ./dotfiles/kitty/gruvbox_dark.conf;
+      # "kitty/gruvbox_dark.conf".source = ./dotfiles/kitty/gruvbox_dark.conf;
+      "kitty/everforest.conf".source = ./dotfiles/kitty/everforest.conf;
     };
   };
 
