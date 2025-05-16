@@ -16,6 +16,7 @@
 			"zoom"
 			"microsoft-teams"
 			"arduino-ide"
+			"visual-studio-code"
 		];
 
 		taps = [
