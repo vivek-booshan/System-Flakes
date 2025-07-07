@@ -27,7 +27,6 @@
       zig
 
       # terminal related
-      kitty # to get the nix kitty to work, set up nixGL, otherwise use the local version
       helix
       starship
       fish
@@ -56,6 +55,9 @@
       rr
       # lld_18
       # llvmPackages_18.libllvm
+
+      # Python
+      uv
      ]; 
 
     sessionVariables = {
