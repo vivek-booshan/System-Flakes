@@ -9,6 +9,7 @@ fish_add_path /usr/local/lib
 alias la="eza -la"
 alias ezT="eza -T"
 alias z="zoxide"
+alias clip="xclip -selection clipboard"
 
 if type -q starship
     starship init fish | source
