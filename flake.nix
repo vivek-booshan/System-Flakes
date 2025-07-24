@@ -65,9 +65,10 @@
 		# Make Darwin Configuration with arguments 
 		# Usage : mkDarwinConfiguration "hostname" "username"
 
-		mkDarwinConfiguration = hostname: #: username:
+		mkDarwinConfiguration = system: hostname: #: username:
 			nix-darwin.lib.darwinSystem {
-				system =  "aarch64-darwin";
+				# system =  "aarch64-darwin";
+				inherit system;
 				specialArgs = {
 					inherit self inputs outputs hostname;
 					# userConfig = users.${username};
@@ -89,13 +90,12 @@
 					inherit inputs outputs;
 					userConfig = users.${username};
 					homeDirectory = 
-						if system == "aarch64-darwin" then 
-							"/Users/${username}"
-						else if system == "x86_64-linux" then
+						if system == "x86_64-linux" then
 							"/home/${username}"
+						else if system == "aarch64-darwin" || system == "x86_64-darwin" then 
+							"/Users/${username}"
 						else
-							throw "Exiting with error. Currently supporting aarch64-darwin and x86_64-linux"
-					;
+							throw "Unsupported architecture ${system}";
 				};
 				modules = [
 					./home-manager/home.nix
@@ -107,12 +107,14 @@
 	in {
 
 		darwinConfigurations = {
-			m1mac = mkDarwinConfiguration "m1mac";
+			m1mac = mkDarwinConfiguration "aarch64-darwin" "m1mac";
+			ornl = mkDarwinConfiguration "x86_64-darwin" "ornl";
 		};
 
 		homeConfigurations = {
 			"vivek@m1mac" = mkHomeConfiguration "aarch64-darwin" "m1mac" "vivek";
 			"vivek@popos" = mkHomeConfiguration "x86_64-linux" "popos" "vivek";
+			"v21@ornl" = mkHomeConfiguration "x86_64-darwin" "ornl" "v21";
 		};
 
 	};
